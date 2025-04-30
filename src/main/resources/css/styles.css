@@ -1,0 +1,51 @@
+/* Define theme colors
+    * dark: #221C0F
+    * medium: #967959
+    * light: #FBE3BD
+*/
+
+/* Background */
+.primary-background {
+    -fx-background-color: #221C0F;
+}
+.secondary-background {
+    -fx-background-color: #FBE3BD;
+}
+.tertiary-background{
+    -fx-background-color: #967959;
+}
+
+/* TextField and prompt text color */
+.credential-form-field{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #967959 transparent;
+    -fx-border-width: 0 0 1px 0;
+    -fx-max-width: 300px;
+}
+.text-field-prompt {
+    -fx-prompt-text-fill: #888888;
+}
+
+/* Button */
+.button {
+    -fx-background-color: #FBE3BD;
+    -fx-text-fill: #967959;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 2);
+    -fx-padding: 6px 0;
+    -fx-border-width: 2px;
+}
+.button:hover {
+    -fx-background-color: #221C0F;
+    -fx-text-fill: #967959;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 0, 4);
+}
+
+.list-view{
+    -fx-background-color: #FBE3BD;
+}
+
+.list-cell{
+    -fx-background-color: #ffffff;
+}
