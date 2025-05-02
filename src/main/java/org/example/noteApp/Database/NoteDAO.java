@@ -1,7 +1,8 @@
-package org.example.noteApp.Database;
+package org.example.noteapp.Database;
 
-import org.example.noteApp.Model.Note;
+import org.example.noteapp.Model.Note;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface NoteDAO {
@@ -10,6 +11,6 @@ public interface NoteDAO {
     boolean removeNote(String id);
     boolean updateNote(String id);
     List<Note> getAllNotes();
-    List<Note> getNoteByTitleAndConText(String search);
+    List<Note> getNoteByTitleAndConText(String title);
 
 }

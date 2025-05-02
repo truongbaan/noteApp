@@ -1,6 +1,6 @@
-package org.example.noteApp.Model;
+package org.example.noteapp.Model;
 
-import org.example.noteApp.Utility.IdUtils;
+import org.example.noteapp.Utility.IdUtils;
 
 public class Note {
     private final String id; // unique

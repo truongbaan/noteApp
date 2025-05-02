@@ -1,4 +1,4 @@
-package org.example.noteApp;
+package org.example.noteapp;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

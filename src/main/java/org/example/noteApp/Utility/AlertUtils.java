@@ -1,4 +1,4 @@
-package org.example.noteApp.Utility;
+package org.example.noteapp.Utility;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
