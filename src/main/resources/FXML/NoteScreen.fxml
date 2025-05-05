@@ -34,7 +34,7 @@
                                 </ImageView>
                             </graphic>
                         </Button>
-                        <ListView fx:id="noteList" prefHeight="538.0" prefWidth="237.0" />
+                        <ListView fx:id="noteList" prefHeight="558.0" prefWidth="237.0" />
                     </VBox>
                 </content>
             </ScrollPane>
@@ -56,7 +56,7 @@
                     <Button mnemonicParsing="false" onAction="#createNewNote" prefHeight="30.0" prefWidth="120.0" text="Create New Note" />
                     <Button mnemonicParsing="false" onAction="#saveCurrentNote" prefHeight="30.0" prefWidth="92.0" text="Save" />
                     <Button mnemonicParsing="false" onAction="#deleteNote" prefHeight="30.0" prefWidth="110.0" text="Delete" />
-               <Button mnemonicParsing="false" onAction="#askGeminiToSummarize" prefHeight="30.0" prefWidth="110.0" text="Summarize" />
+                    <Button mnemonicParsing="false" onAction="#askGeminiToSummarize" prefHeight="30.0" prefWidth="110.0" text="Summarize" />
                 </children>
             </HBox>
             <Line endX="-558.775390625" endY="-4.142098426818848" startX="355.71746826171875" startY="-4.142096042633057" />

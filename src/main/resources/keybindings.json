@@ -1,0 +1,34 @@
+{
+  "newNote": {
+    "key": "T",
+    "shortcut": true
+  },
+  "saveNote": {
+    "key": "S",
+    "shortcut": true
+  },
+  "deleteNote": {
+    "key": "D",
+    "shortcut": true
+  },
+  "search": {
+    "key": "F",
+    "shortcut": true
+  },
+  "summarize": {
+    "key": "G",
+    "shortcut": true
+  },
+  "increaseFontSize": {
+  "key": "EQUALS",
+  "shortcut": true
+},
+  "decreaseFontSize": {
+    "key": "MINUS",
+    "shortcut": true
+  },
+  "focusNoteList": {
+    "key": "Q",
+    "shortcut": true
+  }
+}
