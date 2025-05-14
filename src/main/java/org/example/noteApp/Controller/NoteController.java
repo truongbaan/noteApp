@@ -47,6 +47,7 @@ public class NoteController {
 
     @FXML
     public void initialize() {
+        createNewNote();
         // Initialize the key binding manager
         keyBindingManager = new KeyBindingManager();
 
@@ -78,16 +79,16 @@ public class NoteController {
     private void setupCustomTabTraversal() {
         // Override default tab behavior for noteTitle
         noteTitle.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.TAB) {
-                event.consume(); // Prevent default tab behavior
+            if (event.getCode() == KeyCode.BACK_QUOTE) { // using " ` "
+                event.consume();
                 noteContent.requestFocus();
             }
         });
 
         // Override default tab behavior for noteContent
         noteContent.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.TAB) {
-                event.consume(); // Prevent default tab behavior
+            if (event.getCode() == KeyCode.BACK_QUOTE) {
+                event.consume();
                 noteTitle.requestFocus();
             }
         });
@@ -195,7 +196,10 @@ public class NoteController {
 
     @FXML
     public void createNewNote() {
-        saveCurrentNote(); // Save the current note
+        Note cn = BackEnd.currentNote;
+        if (cn != null && !cn.getContent().isEmpty() && !cn.getTitle().isEmpty()) {
+            saveCurrentNote();
+        }
 
         // Create new note
         BackEnd.currentNote = new Note();
@@ -219,11 +223,15 @@ public class NoteController {
     }
 
     private void saveCurrentNoteContent() {
+        if (BackEnd.currentNote == null) return;
+
         // Skip validation for empty notes to allow for drafts
         BackEnd.currentNote.setTitle(noteTitle.getText().isEmpty() ? "Untitled" : noteTitle.getText());
         BackEnd.currentNote.setContent(noteContent.getText());
+
         BackEnd.updateNote();
     }
+
 
     @FXML
     public void deleteNote() {
@@ -284,6 +292,7 @@ public class NoteController {
 
     @FXML
     public void search() {
+        // Just update the ListView items
         String text = SearchField.getText().trim();
         if (text.isEmpty()) {
             refreshNoteList();
@@ -301,8 +310,7 @@ public class NoteController {
         ObservableList<Note> items = FXCollections.observableArrayList(filteredNotes);
         noteList.setItems(items);
 
-        // If current note is not in filtered list, don't change the current note
-        // Just update the ListView items
+
     }
 
     public void refreshNoteList() {

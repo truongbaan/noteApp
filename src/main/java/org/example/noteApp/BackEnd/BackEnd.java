@@ -9,13 +9,14 @@ import java.util.List;
 
 public class BackEnd {//idk just think this should help do something
     private static final ArrayList<Note> notes = NoteDAOImplement.getAllNotes();;
-    public static Note currentNote = new Note();
+    public static Note currentNote = null;
     private static BackEnd instance;
 
     public BackEnd() {
     }
 
     // Synchronized method to control access to the singleton instance
+    //remove later since all var is static
     public static synchronized BackEnd getInstance() {
         if (instance == null) {
             instance = new BackEnd();
@@ -29,10 +30,12 @@ public class BackEnd {//idk just think this should help do something
     }
 
     public static boolean addNote(Note note) {
-        notes.add(note);
-        NoteDAOImplement.addNote(note);
-        currentNote = note;
-        return true;
+        if(NoteDAOImplement.addNote(note)){
+            notes.add(note);
+            currentNote = note;
+            return true;
+        }
+        return false;
     }
 
     public static boolean removeNote(Note note) {
@@ -47,9 +50,11 @@ public class BackEnd {//idk just think this should help do something
         }
 
         // Remove the note from the data access object (DAO)
-        NoteDAOImplement.removeNote(note);
-        currentNote = null; // Clear the current note
-        return true; // Indicate success
+        if(NoteDAOImplement.removeNote(note)){
+            currentNote = null; // Clear the current note
+            return true; // Indicate success
+        }
+        return false;
     }
 
     public static boolean updateNote() {
@@ -59,8 +64,7 @@ public class BackEnd {//idk just think this should help do something
                 note1.setContent(currentNote.getContent());
             }
         }
-        NoteDAOImplement.updateNote(currentNote);
-        return true;
+        return NoteDAOImplement.updateNote(currentNote);
     }
 
 }
