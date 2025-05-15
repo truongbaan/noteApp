@@ -33,6 +33,8 @@ public class NoteController {
 
     @FXML
     private TextField SearchField;
+    @FXML
+    private TextArea geminiAns;
 
     @FXML
     private BorderPane rootPane;
@@ -44,9 +46,11 @@ public class NoteController {
     private static final double FONT_SIZE_INCREMENT = 2.0;
     private static final double MIN_FONT_SIZE = 8.0;
     private static final double MAX_FONT_SIZE = 24.0;
+    private GeminiClient geminiClient;
 
     @FXML
     public void initialize() {
+        geminiClient = GeminiClient.getInstance();
         createNewNote();
         // Initialize the key binding manager
         keyBindingManager = new KeyBindingManager();
@@ -262,7 +266,7 @@ public class NoteController {
 
         String prompt = "Could you please summarize, enhance the note and predict what we should do in the future?";
         String content = noteContent.getText();
-
+        geminiAns.setText(GeminiClient.summarizeText(prompt + content));
         // TODO: Implement Gemini API integration
 
     }
