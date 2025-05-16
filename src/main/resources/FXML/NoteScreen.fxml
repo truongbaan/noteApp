@@ -64,7 +64,7 @@
                 <children>
                     <Button mnemonicParsing="false" onAction="#increaseFont" prefHeight="30.0" prefWidth="121.0" text="Increase font size" />
                     <Button mnemonicParsing="false" onAction="#decreaseFont" prefHeight="30.0" prefWidth="118.0" text="Decrease font size" />
-                    <Button mnemonicParsing="false" onAction="#decreaseFont" prefHeight="30.0" prefWidth="118.0" text="Copy to clipboard" />
+                    <Button mnemonicParsing="false" onAction="#copy" prefHeight="30.0" prefWidth="118.0" text="Copy to clipboard" />
                     <TextArea fx:id="geminiAns" editable="false" prefHeight="52.0" prefWidth="433.0" promptText="This is where to view the text when it got summarized, you could copy it to clipboard using the button or just view it as a reference." wrapText="true">
                         <font>
                             <Font name="System Bold" size="13.0" />

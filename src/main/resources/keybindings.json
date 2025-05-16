@@ -30,5 +30,9 @@
   "focusNoteList": {
     "key": "Q",
     "shortcut": true
+  },
+  "copyClipboard": {
+    "key": "B",
+    "shortcut": true
   }
 }

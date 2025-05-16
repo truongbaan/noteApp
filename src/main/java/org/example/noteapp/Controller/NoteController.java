@@ -2,11 +2,14 @@ package org.example.noteapp.Controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
@@ -46,11 +49,11 @@ public class NoteController {
     private static final double FONT_SIZE_INCREMENT = 2.0;
     private static final double MIN_FONT_SIZE = 8.0;
     private static final double MAX_FONT_SIZE = 24.0;
-    private GeminiClient geminiClient;
 
+    private GeminiClient geminiClient;
     @FXML
     public void initialize() {
-        geminiClient = GeminiClient.getInstance();
+        geminiClient = new GeminiClient();
         createNewNote();
         // Initialize the key binding manager
         keyBindingManager = new KeyBindingManager();
@@ -193,6 +196,7 @@ public class NoteController {
         actionMap.put("increaseFontSize", this::increaseFont);
         actionMap.put("decreaseFontSize", this::decreaseFont);
         actionMap.put("focusNoteList", this::focusOnCurrentNoteInList); // Add Ctrl+Q binding
+        actionMap.put("copyClipboard", this::copy); // copy answer from gemini
 
         // Apply key bindings to the scene
         keyBindingManager.applyBindingsToScene(scene, actionMap);
@@ -267,8 +271,6 @@ public class NoteController {
         String prompt = "Could you please summarize, enhance the note and predict what we should do in the future?";
         String content = noteContent.getText();
         geminiAns.setText(GeminiClient.summarizeText(prompt + content));
-        // TODO: Implement Gemini API integration
-
     }
 
     @FXML
@@ -352,5 +354,15 @@ public class NoteController {
         // Clear prompt text when we have a note
         noteTitle.setPromptText("Title");
         noteContent.setPromptText("Content");
+    }
+
+    public  void copy() {
+        String selectedText = geminiAns.getText();
+        if (selectedText != null && !selectedText.isEmpty()) {
+            Clipboard clipboard = Clipboard.getSystemClipboard();
+            ClipboardContent content = new ClipboardContent();
+            content.putString(selectedText);
+            clipboard.setContent(content);
+        }
     }
 }
