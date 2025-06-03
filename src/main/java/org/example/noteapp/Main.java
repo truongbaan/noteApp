@@ -5,30 +5,34 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.example.noteapp.Controller.NoteController;
+
 import java.io.IOException;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        // Load the single FXML screen
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/FXML/NoteScreen.fxml"));
         Parent root = fxmlLoader.load();
-
-        // Create and set the scene
+        NoteController noteController = fxmlLoader.getController();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Note Application");
 
-        // Configure window sizing
-        stage.setMinHeight(350);      // Minimum height
-        stage.setMinWidth(1200);       // Minimum width
-        stage.setMaxWidth(1250);      // Maximum width
+        //size limit
+        stage.setMinHeight(350);      // min height
+        stage.setMinWidth(1200);     // min width
+        stage.setMaxWidth(1250);      // max width
 
-        // Show the stage
+        // auto save when close
+        stage.setOnCloseRequest(event -> {
+            noteController.saveCurrentNote();
+        });
+
+
         stage.show();
     }
-
 
     public static void main(String[] args) {
         launch();
