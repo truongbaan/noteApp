@@ -34,7 +34,7 @@
     -fx-cursor: hand;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 2);
     -fx-padding: 6px 0;
-    -fx-border-width: 2px;
+    -fx-border-width: 5px;
 }
 .button:hover {
     -fx-background-color: #221C0F;
@@ -43,9 +43,9 @@
 }
 
 .list-view{
-    -fx-background-color: #FBE3BD;
+    -fx-background-color: #ddccb8;
 }
 
 .list-cell{
-    -fx-background-color: #ffffff;
+    -fx-background-color: #FBE3BD;
 }

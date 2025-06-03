@@ -27,7 +27,7 @@
                 <content>
                     <VBox spacing="20.0">
                         <TextField fx:id="SearchField" promptText="Search Note's title or text in Note" />
-                        <Button fx:id="SearchButton" graphicTextGap="30" mnemonicParsing="false" onAction="#search" prefHeight="31.0" prefWidth="279.0" styleClass="nav-button" text="Search">
+                        <Button fx:id="SearchButton" graphicTextGap="30" mnemonicParsing="false" onAction="#search" prefHeight="31.0" prefWidth="279.0" styleClass="button" text="Search">
                             <graphic>
                                 <ImageView fitHeight="30.0" fitWidth="30.0">
                                     <Image url="@../icons/something.jpg" />
@@ -44,7 +44,7 @@
         </VBox>
     </left>
     <center>
-        <VBox spacing="20" style="-fx-padding: 20;">
+        <VBox spacing="20" style="-fx-padding: 20; -fx-background-color: #ddccb8;">
             <HBox prefHeight="1.0" style="-fx-background-color: #211b0f;" HBox.hgrow="ALWAYS" />
             <HBox alignment="CENTER_LEFT" spacing="10.0">
                 <children>
