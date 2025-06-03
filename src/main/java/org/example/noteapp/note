@@ -6,4 +6,4 @@ It contains pages:
 -How to implement?
  - Using mvc, with model is Note, controller would be for each page
  - Database: Choose text file or make a database? (just text file for simpler)
- - Albility to edit, add and remove note.
+ - Ability to edit, add and remove note.

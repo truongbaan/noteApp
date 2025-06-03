@@ -9,6 +9,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 import org.example.noteapp.BackEnd.BackEnd;
+import org.example.noteapp.Utility.AlertUtils;
 import org.json.JSONObject;
 
 import io.github.cdimascio.dotenv.Dotenv;
@@ -40,6 +41,7 @@ public class GeminiClient {
     public static String summarizeText(String textToSummarize) {
         if (apiKey == null) {
             System.err.println("API key is not initialized.");
+            AlertUtils.showError("API key not found", "API key not found", "Please check your .env file in the same folder of this app, and check if the file contain GEMINI_API_KEY value");
             return null;
         }
 
