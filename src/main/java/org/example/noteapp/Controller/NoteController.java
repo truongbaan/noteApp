@@ -2,7 +2,6 @@ package org.example.noteapp.Controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -84,17 +83,15 @@ public class NoteController {
     }
 
     private void setupCustomTabTraversal() {
-        // Override default tab behavior for noteTitle
         noteTitle.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.BACK_QUOTE) { // using " ` "
+            if (event.getCode() == KeyCode.TAB && event.isControlDown()) { //check ctrl + tab
                 event.consume();
                 noteContent.requestFocus();
             }
         });
 
-        // Override default tab behavior for noteContent
         noteContent.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.BACK_QUOTE) {
+            if (event.getCode() == KeyCode.TAB && event.isControlDown()) {
                 event.consume();
                 noteTitle.requestFocus();
             }
@@ -111,7 +108,7 @@ public class NoteController {
         // Handle arrow keys when ListView is focused
         if (noteList.isFocused()) {
             if (event.getCode() == KeyCode.ENTER) {
-                // When pressing Enter on a selected item, move focus to the title field
+                // move focus to the title field of the selected node
                 event.consume();
                 noteTitle.requestFocus();
             }
@@ -134,7 +131,6 @@ public class NoteController {
     }
 
     private void setupNoteListView() {
-        // Custom cell factory with proper selection highlighting
         noteList.setCellFactory(lv -> new ListCell<Note>() {
             @Override
             protected void updateItem(Note note, boolean empty) {
