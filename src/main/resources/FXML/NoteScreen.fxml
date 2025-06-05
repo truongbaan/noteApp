@@ -50,7 +50,7 @@
                 <children>
                     <TextField fx:id="noteTitle" prefHeight="26.0" prefWidth="557.0" promptText="Title of the Note">
                         <font>
-                            <Font size="14.0" />
+                            <Font name = "Arial" size="14.0" />
                         </font>
                     </TextField>
                     <Button mnemonicParsing="false" onAction="#createNewNote" prefHeight="30.0" prefWidth="120.0" text="Create New Note" />
@@ -77,7 +77,7 @@
             </HBox>
             <TextArea fx:id="noteContent" prefHeight="558.0" prefWidth="704.0" promptText="Write your note here">
                 <font>
-                    <Font name="VNI-Arial-Bold" size="18.0" />
+                    <Font name="Arial" size="18.0" />
                 </font>
             </TextArea>
         </VBox>
